@@ -12,7 +12,7 @@ The project provides:
 - **Inference utilities** (`inference.py`, `test.py`) for standalone batch processing and prompt-level checks.
 - **Deployment script** (`script.sh`) to automate installation, startup, and shutdown across all services.
 
-All components run locally but expect the Qwen OpenAI-compatible server (via vLLM) to be active on `localhost:8000`.
+All components run locally, but expect the Qwen OpenAI-compatible server (via vLLM) to be active on `localhost:8000`.
 
 ---
 
@@ -79,7 +79,7 @@ What it does:
 
 Starts three background processes (logs under `.logs/`, PIDs under `.pids/`):
 1. **Qwen Server**: `python -m vllm.entrypoints.openai.api_server ... --port 8000`
-2. **Backend API**: `uvicorn backend.server:app --port 15200`
+2. **Backend API**: `uvicorn backend.server: app --port 15200`
 3. **Frontend UI**: `npm run dev -- --port 5173`
 
 Endpoints after startup:
@@ -117,10 +117,10 @@ If you prefer to run each service manually:
 ## 6. Using the Frontend Website
 
 1. Open `http://localhost:5173` in your browser.
-2. Upload an image or drag-and-drop onto the drop zone.
+2. Upload an image or drag-and-drop it onto the drop zone.
 3. Enter a natural language query (caption, counting, detection, etc.).
 4. Submit; the UI calls `/geoNLI/eval` on the backend, which internally routes to YOLO + Qwen.
-5. Review the answer in the chat panel; for grounding queries you’ll see textual descriptions (current UI does not render boxes automatically).
+5. Review the answer in the chat panel; for grounding queries, you’ll see textual descriptions (current UI does not render boxes automatically).
 
 > **Note:** The backend uses Qwen for semantic reasoning and YOLO for object detection. If Qwen is offline, you’ll see “Unable to process this query” responses.
 
