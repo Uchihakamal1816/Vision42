@@ -2,6 +2,7 @@
 
 This document can be exported directly to **User_Guide.pdf** (for example, `pandoc User_Guide.md -o User_Guide.pdf`). It summarizes how to install, run, and interact with the GeoNLI application, including the automated deployment script and inference workflows.
 
+Contributors : @Uchihakamal1816 (Team Lead), @kinshuk18, @Ashish-Kumar-Dash
 ---
 
 ## 1. System Overview
